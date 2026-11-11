@@ -1,0 +1,63 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Sao_Paulo
+    # Espera alguns dias antes de propor versões recém-publicadas:
+    # protege contra pacotes comprometidos que são retirados logo após o ataque.
+    cooldown:
+      default-days: 5
+    open-pull-requests-limit: 5
+    ignore:
+      # Os tipos do Node acompanham a versão do runtime (.nvmrc = 24).
+      # Troca de versão maior do Node é feita manualmente, junto com o runtime.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+    groups:
+      next-react:
+        patterns:
+          - next
+          - eslint-config-next
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
+      ferramentas-dev:
+        dependency-type: development
+        update-types: [minor, patch]
+    commit-message:
+      prefix: deps
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Sao_Paulo
+    cooldown:
+      default-days: 5
+    commit-message:
+      prefix: ci
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Sao_Paulo
+    # Só atualizações de segurança/patch do Node 24 LTS (digest e versões menores).
+    # Versões maiores (ex.: 25, que não é LTS) ficam bloqueadas.
+    ignore:
+      - dependency-name: node
+        update-types: ["version-update:semver-major"]
+    cooldown:
+      default-days: 5
+    commit-message:
+      prefix: docker

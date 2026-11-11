@@ -1,0 +1,35 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font: 600 11.5px/1 var(--sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.eyebrow::before,
+.centered::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.onLight {
+  color: var(--gold-dk);
+}
+
+@media (max-width: 760px) {
+  .eyebrow {
+    gap: 10px;
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+  }
+
+  .eyebrow::before,
+  .centered::after {
+    width: 22px;
+  }
+}

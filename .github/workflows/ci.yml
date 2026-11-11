@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Menor privilégio: o workflow só lê o repositório.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Auditoria, lint, tipos, testes e build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Ações fixadas por SHA de commit (não por tag, que pode ser movida).
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Node.js (versão do .nvmrc)
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar dependências (lockfile exato, sem scripts de terceiros)
+        run: npm ci --no-audit --no-fund
+
+      - name: Auditoria — dependências de produção (qualquer severidade)
+        run: npm audit --omit=dev --audit-level=low
+
+      - name: Auditoria — todas as dependências (alta/crítica)
+        run: npm audit --audit-level=high
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tipos
+        run: npm run typecheck
+
+      - name: Testes
+        run: npm test
+
+      - name: Build de produção
+        run: npm run build
+        env:
+          SITE_URL: https://www.entretoques.com.br

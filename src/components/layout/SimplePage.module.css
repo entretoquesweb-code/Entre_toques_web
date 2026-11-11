@@ -1,0 +1,70 @@
+.page {
+  padding: 190px 0 140px;
+  background:
+    radial-gradient(900px 500px at 80% 0%, rgb(201 166 107 / 0.08), transparent 70%),
+    var(--bg);
+}
+
+.inner {
+  max-width: 860px;
+}
+
+.title {
+  margin: 26px 0 40px;
+  font-size: 64px;
+  line-height: 1.02;
+}
+
+.body {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.body h2 {
+  margin: 48px 0 14px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.body p + p,
+.body ul {
+  margin-top: 14px;
+}
+
+.body ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.body li::marker {
+  color: var(--gold);
+}
+
+.body a {
+  color: var(--gold-lt);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+
+.body strong {
+  color: var(--ivory);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 140px 0 100px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .body h2 {
+    font-size: 25px;
+  }
+}

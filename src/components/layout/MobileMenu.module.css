@@ -1,0 +1,72 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--gold);
+}
+
+.toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  padding: 0 22px 28px;
+  overflow-y: auto;
+  background: rgb(14 12 10 / 0.985);
+  animation: fade-in 0.25s ease both;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  margin: 0 -22px;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.list {
+  margin-top: 18px;
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font: 500 30px/1.1 var(--serif);
+  color: var(--ivory);
+}
+
+.num {
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-variant-numeric: lining-nums;
+}
+
+.cta {
+  width: 100%;
+  margin-top: auto;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}

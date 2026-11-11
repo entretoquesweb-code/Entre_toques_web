@@ -1,0 +1,49 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mark {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  color: var(--gold);
+}
+
+.word {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name {
+  font: 600 19px/1 var(--serif);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+
+.tag {
+  font: 600 8.5px/1 var(--sans);
+  letter-spacing: 0.46em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+@media (max-width: 760px) {
+  .mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .name {
+    font-size: 15px;
+    letter-spacing: 0.3em;
+  }
+
+  .tag {
+    font-size: 7px;
+    letter-spacing: 0.4em;
+  }
+}

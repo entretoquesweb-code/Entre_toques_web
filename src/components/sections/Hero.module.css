@@ -1,0 +1,120 @@
+.hero {
+  position: relative;
+  height: 900px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.bg {
+  object-fit: cover;
+  object-position: 0% 50%;
+  transform: scale(1.06);
+  transform-origin: 70% 50%;
+  filter: brightness(0.78) contrast(1.06) saturate(0.92);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(14 12 10 / 0.95) 0%,
+      rgb(14 12 10 / 0.86) 32%,
+      rgb(14 12 10 / 0.45) 52%,
+      rgb(14 12 10 / 0.06) 70%,
+      rgb(14 12 10 / 0.3) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(14 12 10 / 0.55) 0%,
+      rgb(14 12 10 / 0) 22%,
+      rgb(14 12 10 / 0) 62%,
+      rgb(14 12 10 / 0.96) 100%
+    );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-top: 40px;
+}
+
+.title {
+  margin: 30px 0 32px;
+  font-size: 92px;
+  line-height: 0.96;
+}
+
+.lead {
+  max-width: 480px;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: rgb(238 230 216 / 0.78);
+}
+
+.ctas {
+  display: flex;
+  margin-top: 44px;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    height: auto;
+    min-height: 780px;
+  }
+
+  .media {
+    bottom: auto;
+    height: 560px;
+    -webkit-mask-image: linear-gradient(180deg, #000 50%, transparent 97%);
+    mask-image: linear-gradient(180deg, #000 50%, transparent 97%);
+  }
+
+  .bg {
+    object-position: 79% 50%;
+    transform: none;
+    filter: brightness(0.86) contrast(1.05) saturate(0.92);
+  }
+
+  .shade {
+    background: linear-gradient(
+      180deg,
+      rgb(14 12 10 / 0.72) 0%,
+      rgb(14 12 10 / 0) 15%,
+      rgb(14 12 10 / 0) 32%,
+      rgb(14 12 10 / 0.6) 44%,
+      rgb(14 12 10 / 0) 60%
+    );
+  }
+
+  .content {
+    justify-content: flex-end;
+    height: auto;
+    padding: 410px 22px 48px;
+  }
+
+  .title {
+    margin: 20px 0 18px;
+    font-size: 46px;
+    line-height: 0.98;
+  }
+
+  .lead {
+    font-size: 15.5px;
+  }
+
+  .ctas {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+}

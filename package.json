@@ -1,0 +1,42 @@
+{
+  "name": "entre-toques-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing page da Entre Toques — massagem relaxante exclusiva para homens.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --test \"src/**/*.test.ts\"",
+    "audit:prod": "npm audit --omit=dev --audit-level=low",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "10.14.0",
+    "eslint-config-next": "16.4.5",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.5"
+    },
+    "eslint": {
+      "minimatch": "11.0.5"
+    }
+  }
+}

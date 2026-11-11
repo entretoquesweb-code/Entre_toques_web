@@ -1,0 +1,93 @@
+.exp {
+  background: var(--bg-2);
+}
+
+.head {
+  text-align: center;
+}
+
+.title {
+  margin-top: 26px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 72px;
+  border-top: 1px solid var(--line);
+}
+
+.item {
+  padding: 44px 24px 0;
+  text-align: center;
+}
+
+.item + .item {
+  border-left: 1px solid var(--line-soft);
+}
+
+.n {
+  display: block;
+  font: 500 64px/1 var(--serif);
+  font-variant-numeric: lining-nums;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+}
+
+.name {
+  display: block;
+  margin-top: 20px;
+  font: 500 28px/1.15 var(--serif);
+  color: var(--ivory);
+}
+
+/* Tablet: 2 x 2. */
+@media (max-width: 1080px) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .item {
+    padding-bottom: 40px;
+  }
+
+  .item:nth-child(3) {
+    border-left: none;
+  }
+
+  .item:nth-child(n + 3) {
+    border-top: 1px solid var(--line-soft);
+  }
+}
+
+/* Celular: lista, número à esquerda. */
+@media (max-width: 760px) {
+  .list {
+    grid-template-columns: 1fr;
+    margin-top: 44px;
+  }
+
+  .item,
+  .item + .item,
+  .item:nth-child(n + 3) {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 22px 0;
+    border-top: none;
+    border-bottom: 1px solid var(--line-soft);
+    border-left: none;
+    text-align: left;
+  }
+
+  .n {
+    flex: none;
+    width: 56px;
+    font-size: 44px;
+  }
+
+  .name {
+    margin-top: 0;
+    font-size: 24px;
+  }
+}

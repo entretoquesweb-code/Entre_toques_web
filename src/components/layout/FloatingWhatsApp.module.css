@@ -1,0 +1,32 @@
+.float {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ebd3a0, #c9a66b 55%, #a9844c);
+  color: #16110b;
+  box-shadow:
+    0 20px 40px -12px rgb(0 0 0 / 0.6),
+    0 0 0 8px rgb(201 166 107 / 0.12);
+  transition: transform 0.2s ease;
+}
+
+.float:hover {
+  transform: translateY(-2px);
+}
+
+.float svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 760px) {
+  .float {
+    display: none;
+  }
+}

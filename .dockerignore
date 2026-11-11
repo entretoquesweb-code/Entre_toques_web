@@ -1,0 +1,18 @@
+# Nunca enviar segredos, dependências locais ou artefatos para o contexto do Docker
+.env*
+!.env.example
+.git
+.github
+.next
+node_modules
+coverage
+reports
+npm-debug.log*
+.DS_Store
+.idea
+.vscode
+Dockerfile
+.dockerignore
+README.md
+SECURITY.md
+AGENTS.md
